@@ -1,10 +1,10 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // Provides custom matchers
-import HeroSection from "./components/HeroSection/HeroSection.jsx" // Adjust path if needed
-
+import HeroSection from "./components/HeroSection/HeroSection.jsx"; // Adjust path if needed
 test("renders the demo button with correct styles", () => {
   render(<HeroSection />);
-  
+
   // Select the button using test-id
   const buttonElement = screen.getByTestId("view_demo_btn");
 

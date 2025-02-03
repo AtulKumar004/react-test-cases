@@ -1,32 +1,56 @@
 import React from 'react';
+import Section from '../styled/Main';
+import Logo from '../../assest/Logo.png';
+import SignInIcon from "../../assest/signIn.svg"
+import NavbarContainer, { NavItems } from '../styled/NavbarContainer';
+
 
 export default function Header() {
     return (
         <>
             {/* /* Top Announcement Bar */}
-            <div className="bg-gray-100 text-center text-sm text-gray-800 py-2">
+            <div className="bg-gray-100 text-center text-sm text-gray-800 py-2 ">
                 B2B Ninja is now part of BigCommerce. Same team. Same support. New horizons.
             </div>
-            <header className="bg-black text-white">
-                <div className="container mx-auto flex items-center justify-between py-4 px-4">
+            <Section data-testid="navbar-container">
+
+                {/* <header className="bg-black text-white container mx-auto px-4"> */}
+                <NavbarContainer className='flex  py-4 '>
+
+
                     {/* Logo */}
-                    <div className="text-xl font-bold">B2B Ninja</div>
-                    {/* Nav Links */}
+                    <div >
+                        <a href="#home" className="text-2xl font-bold">   <img className='' src={Logo} alt="Logo" /></a>
+                    </div>
+
                     <nav className="hidden md:flex space-x-4">
-                        <a href="#modules" className="hover:text-gray-300">Modules</a>
-                        <a href="#pricing" className="hover:text-gray-300">Pricing</a>
-                        <a href="#partners" className="hover:text-gray-300">Partners</a>
-                        <a href="#about" className="hover:text-gray-300">About</a>
-                        <a href="#contact" className="hover:text-gray-300">Contact</a>
-                        <a href="#resources" className="hover:text-gray-300">Resources</a>
-                        <a href="#signin" className="hover:text-gray-300">Sign In</a>
+                        <NavItems to="/modules" className="">Modules</NavItems>
+                        <NavItems to="/pricing" className="">Pricing</NavItems>
+                        <NavItems to="/partners" className="">Partners</NavItems>
+                        <NavItems to="/about" className="">About</NavItems>
+                        <NavItems to="/contact" className="">Contact</NavItems>
+                        <NavItems to="/resources" className="">Resources</NavItems>
+                        <NavItems to="/signin" className="">Sign In</NavItems>
+                    </nav>
+
+
+
+                    <div className='flex items-center space-x-4'>
+
+                        <div className='flex items-center space-x-2'>
+                            <img src={SignInIcon} alt="sing-in-icon" />
+                            <span >Sign In</span>
+                        </div>
                         <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
                             Free Trial
                         </button>
-                    </nav>
+                    </div>
+
                     {/* Mobile Nav Toggle (if needed) */}
-                </div>
-            </header>
+
+                </NavbarContainer>
+                {/* </header> */}
+            </Section>
         </>
     );
 }

@@ -9,13 +9,16 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
 
   background-color: transparent;
-  border: 1px solid red;
   a img {
-    width: 80%;
+    width: 65%;
+  }
+
+  @media (min-width: 1024px) {
+    a img {
+      width: 80%;
+    }
   }
 `;
-
-
 
 export const NavItems = styled(Link)`
   /* Make the parent a positioning container */
@@ -33,9 +36,9 @@ export const NavItems = styled(Link)`
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;               /* Thickness of the underline */
+    height: 2px; /* Thickness of the underline */
     // border-radius: 2rem;        /* Rounded corners
-    background-color: blue;    /* Color of the underline */
+    background-color: blue; /* Color of the underline */
 
     /* Start with the underline “invisible” (scaleX(0)) */
     transform: scaleX(0);
@@ -51,6 +54,5 @@ export const NavItems = styled(Link)`
     transform: scaleX(1);
   }
 `;
-
 
 export default NavbarContainer;

@@ -30,15 +30,17 @@ export default function Header() {
       <div
         className={`
           text-center bg-black text-white font-medium text-base py-2
-          transition-transform duration-300 ease-in-out
+          transition-transform duration-300 ease-in-out hover:bg-[#0d52ff] cursor-pointer
           ${isScrolled ? "-translate-y-full" : "translate-y-0"}
         `}
+        data-testid="announcement_bar"
       >
         <p>
           B2B Ninja is now part of BigCommerce. Same team. Same support. New
           horizons.
         </p>
       </div>
+
       <Section
         data-testid="navbar-container"
         className={`
@@ -49,14 +51,14 @@ export default function Header() {
         {/* <header className="bg-black text-white container mx-auto px-4"> */}
         <NavbarContainer className="flex lg:py-0 py-4">
           {/* /* Logo */}
-          <div className="lg:py-4 col-span-1">
+          <div className="lg:py-4 col-span-1 logo">
             <a href="#home" className="text-2xl font-bold">
               {" "}
               <img className=" " src={Logo} alt="Logo" />
             </a>
           </div>
 
-          <nav className="hidden lg:flex space-x-4 lg:py-4 col-span-8">
+          <nav className="nav-items hidden lg:flex space-x-4 lg:py-4 col-span-8">
             <NavItems to="/modules" className="">
               Modules
             </NavItems>
@@ -77,7 +79,7 @@ export default function Header() {
             </NavItems>
           </nav>
 
-          <div className=" hidden lg:flex items-center space-x-4 lg:py-2 col-span-3">
+          <div className="  sign-in-btn hidden lg:flex items-center space-x-4 lg:py-2 col-span-3">
             <div className="flex items-center space-x-2 cursor-pointer">
               <img
                 src={SignInIcon}
@@ -99,7 +101,7 @@ export default function Header() {
               </span>
             </div>
           </div>
-          <div className="lg:hidden flex ">
+          <div className="lg:hidden flex  hamburger">
             <RxHamburgerMenu className="w-8 h-8" />
           </div>
 

@@ -8,10 +8,10 @@ import firstPlaceSupplyLogo from "../../assest/Logo5.svg";
 import grandEntryLogo from "../../assest/Logo4.svg";
 import albLogo from "../../assest/Logo3.svg";
 import Section from "../styled/Main";
-// import bcPartnerLogo from "../../assest/Logo4.svg";
+import bcPartnerLogo from "../../assest/BC_pref-partner.webp";
 
 // const albLogo = "";
-const bcPartnerLogo = "";
+// const bcPartnerLogo = "";
 // const grandEntryLogo = "";
 
 export default function HeroSection() {
@@ -58,58 +58,66 @@ export default function HeroSection() {
         </div>
       </Section>
 
-      {/* Logo Strip (BulkBookstore, Fujitsu, etc.) */}
-      <div className="bg-white py-4">
-        <div className="container mx-auto px-4 flex flex-wrap items-center justify-center gap-6">
-          <img
-            src={bulkBookstoreLogo}
-            alt="Bulk Bookstore"
-            className="h-8 object-contain"
-          />
-          <img src={fujitsuLogo} alt="Fujitsu" className="h-8 object-contain" />
-          <img
-            src={rescueEssentialsLogo}
-            alt="Rescue Essentials"
-            className="h-8 object-contain"
-          />
-          <img
-            src={firstPlaceSupplyLogo}
-            alt="First Place Supply"
-            className="h-8 object-contain"
-          />
-          <img
-            src={grandEntryLogo}
-            alt="Grand Entry Doors"
-            className="h-8 object-contain"
-          />
-          <img src={albLogo} alt="ALB" className="h-8 object-contain" />
+      <Section className="bg-white py-10 flex-col ">
+        {/* Logo Strip (BulkBookstore, Fujitsu, etc.) */}
+        <div className="bg-white py-4">
+          <div className="container mx-auto px-4 flex flex-wrap items-center justify-between gap-6">
+            <img
+              src={bulkBookstoreLogo}
+              alt="Bulk Bookstore"
+              className="h-8 object-contain"
+            />
+            <img
+              src={fujitsuLogo}
+              alt="Fujitsu"
+              className="h-8 object-contain"
+            />
+            <img
+              src={rescueEssentialsLogo}
+              alt="Rescue Essentials"
+              className="h-8 object-contain"
+            />
+            <img
+              src={firstPlaceSupplyLogo}
+              alt="First Place Supply"
+              className="h-8 object-contain"
+            />
+            <img
+              src={grandEntryLogo}
+              alt="Grand Entry Doors"
+              className="h-8 object-contain"
+            />
+            <img src={albLogo} alt="ALB" className="h-8 object-contain" />
+          </div>
         </div>
-      </div>
+      </Section>
+      <Section className="flex-col" background="#eeeff3">
+        {/* BigCommerce Preferred Section */}
 
-      {/* BigCommerce Preferred Section */}
-      <div className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center lg:items-start">
+        <div className=" w-full py-6 px-4 flex flex-col lg:flex-row items-center lg:items-start">
           {/* BC Partner Logo */}
           <div className="mb-6 lg:mb-0 lg:mr-8 flex-shrink-0">
             <img
               src={bcPartnerLogo}
               alt="BigCommerce Preferred Partner"
-              className="h-16 object-contain"
+              decoding="async"
+              loading="lazy"
+              className="h-36 w-36 object-cover"
             />
           </div>
           {/* Text Blurb */}
-          <div>
-            <h2 className="text-xl font-bold mb-2">
+          <div className=" pl-14 flex-1 pb-12">
+            <h3 className="text-4xl font-[700]">
               BigCommerce Prefers B2B Ninja
-            </h2>
-            <p className="text-sm text-gray-700 max-w-xl">
+            </h3>
+            <p className="text-[17px] lg:text-xl text-gray-700 max-w-4xl">
               B2B Ninja is proud to be a BigCommerce Preferred App—a distinction
               given to standout applications which give merchants exceptional,
               tested, and invaluable advantages.
             </p>
           </div>
         </div>
-      </div>
+      </Section>
     </div>
   );
 }

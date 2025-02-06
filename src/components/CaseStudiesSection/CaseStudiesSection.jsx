@@ -1,49 +1,87 @@
-import React from 'react';
+import React from "react";
+import Card from "./Card";
+import BG1 from "../../assest/BG1.webp";
+import BG2 from "../../assest/BG2.webp";
+import BG3 from "../../assest/BG3.webp";
+import BG4 from "../../assest/BG4.webp";
+
+import TitleImg1 from "../../assest/Logo1.svg";
+import TitleImg2 from "../../assest/Logo2.svg";
+import TitleImg3 from "../../assest/Logo3.svg";
+import TitleImg4 from "../../assest/BulkBookstore-col.svg";
+
+import Section from "../styled/Main";
 
 const caseStudies = [
   {
-    title: 'Bulk Bookstore',
-    subtitle: 'Revolutionizes Their Quote Process',
-    image: '/path/to/bulkbookstore.jpg',
+    title: "Bulk Bookstore",
+    subtitle: "Revolutionizes Their Quote Process",
+    image: "/path/to/bulkbookstore.jpg",
   },
   {
-    title: 'Atlanta Light Bulbs',
-    subtitle: 'Reaches New Customers Using B2B Ninja',
-    image: '/path/to/ALB.jpg',
+    title: "Atlanta Light Bulbs",
+    subtitle: "Reaches New Customers Using B2B Ninja",
+    image: "/path/to/ALB.jpg",
   },
   // ... more case studies
 ];
 
 export default function CaseStudiesSection() {
+  const cardsData = [
+    {
+      BGimage: BG1, // Replace with actual image URLs
+      TitleImg: TitleImg1,
+      title: "Bulk Bookstore",
+      description: "Bulk Bookstore Revolutionizes Their Quote Process",
+      buttonText: "See Case Study",
+    },
+    {
+      BGimage: BG2, // Replace with actual image URLs
+      TitleImg: TitleImg2,
+      title: "ALB - Your Resource in Lighting",
+      description: "Atlanta Light Bulbs Reaches New Customers Using B2B Ninja",
+      buttonText: "See Case Study",
+    },
+    {
+      BGimage: BG3, // Replace with actual image URLs
+      TitleImg: TitleImg3,
+      title: "ALB - Your Resource in Lighting",
+      description: "Atlanta Light Bulbs Reaches New Customers Using B2B Ninja",
+      buttonText: "See Case Study",
+    },
+    {
+      BGimage: BG4, // Replace with actual image URLs
+      TitleImg: TitleImg4,
+      title: "ALB - Your Resource in Lighting",
+      description: "Atlanta Light Bulbs Reaches New Customers Using B2B Ninja",
+      buttonText: "See Case Study",
+    },
+  ];
+
   return (
-    <section className="bg-white py-10">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-4">Real Case Studies</h2>
-        <p className="mb-8 max-w-2xl">
-          Before you try B2B Ninja, learn about how our customers use B2B Ninja...
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {caseStudies.map((study, idx) => (
-            <div
-              key={idx}
-              className="relative group bg-black text-white overflow-hidden rounded-lg"
-            >
-              <img
-                src={study.image}
-                alt={study.title}
-                className="w-full h-full object-cover opacity-75 group-hover:opacity-50 transition duration-300"
-              />
-              <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-                <h3 className="text-xl font-bold mb-1">{study.title}</h3>
-                <p className="mb-4">{study.subtitle}</p>
-                <button className="bg-black bg-opacity-80 px-4 py-2 rounded hover:bg-gray-800">
-                  See Case Study
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+    <Section
+      className=" flex-col items-start"
+      style={{ alignItems: "flex-start" ,  paddingTop: "1.5rem" , paddingBottom: "1.5rem" }}
+    >
+      <h1 className="w-full md:text-left text-center text-4xl font-bold mb-6">
+        Real Case Studies
+      </h1>
+      <p className="md:text-left  w-full text-center text-gray-600 mb-10 sm:max-w-md  max-w-full ">
+        Before you try B2B Ninja, learn about how our customers use B2B Ninja to
+        boost sales, convert traffic, and save time.
+      </p>
+      <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-6  ">
+        {cardsData.map((card, index) => (
+          <Card
+            key={index}
+            image={card.BGimage}
+            titleImg={card.TitleImg}
+            title={card.title}
+            description={card.description}
+            buttonText={card.buttonText}
+          />
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

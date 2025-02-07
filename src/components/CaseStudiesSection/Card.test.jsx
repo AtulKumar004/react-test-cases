@@ -1,8 +1,5 @@
 // Card.test.jsx
 import React from "react";
-// render: To render components in a virtual DOM for testing
-// screen: To query elements in the virtual DOM
-// fireEvent: To simulate user events (e.g., mouseOver)
 import { render, screen, fireEvent } from "@testing-library/react";
 // Provides custom Jest matchers for asserting on DOM nodes
 import "@testing-library/jest-dom";

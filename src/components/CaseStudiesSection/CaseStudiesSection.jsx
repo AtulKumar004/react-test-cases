@@ -12,19 +12,6 @@ import TitleImg4 from "../../assest/BulkBookstore-col.svg";
 
 import Section from "../styled/Main";
 
-const caseStudies = [
-  {
-    title: "Bulk Bookstore",
-    subtitle: "Revolutionizes Their Quote Process",
-    image: "/path/to/bulkbookstore.jpg",
-  },
-  {
-    title: "Atlanta Light Bulbs",
-    subtitle: "Reaches New Customers Using B2B Ninja",
-    image: "/path/to/ALB.jpg",
-  },
-  // ... more case studies
-];
 
 export default function CaseStudiesSection() {
   const cardsData = [
@@ -60,17 +47,22 @@ export default function CaseStudiesSection() {
 
   return (
     <Section
+      data-testId="case-studies-section"
       className=" flex-col items-start"
-      style={{ alignItems: "flex-start" ,  paddingTop: "1.5rem" , paddingBottom: "1.5rem" }}
+      style={{
+        alignItems: "flex-start",
+        paddingTop: "1.5rem",
+        paddingBottom: "1.5rem",
+      }}
     >
       <h1 className="w-full md:text-left text-center text-4xl font-bold mb-6">
         Real Case Studies
       </h1>
-      <p className="md:text-left  w-full text-center text-gray-600 mb-10 sm:max-w-md  max-w-full ">
+      <p data-testid= "case_study_section_description" className="md:text-left  w-full text-center text-gray-600 mb-10 sm:max-w-md  max-w-full ">
         Before you try B2B Ninja, learn about how our customers use B2B Ninja to
         boost sales, convert traffic, and save time.
       </p>
-      <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-6  ">
+      <div data-testid = "case_study_card_container" className=" w-full grid grid-cols-1 md:grid-cols-2 gap-6  ">
         {cardsData.map((card, index) => (
           <Card
             key={index}

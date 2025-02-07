@@ -49,5 +49,10 @@
     "jest": "^27.5.1",
     "react-test-renderer": "^18.3.1",
     "tailwindcss": "^3.4.17"
+  },
+   "jest": {
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    }
   }
 }

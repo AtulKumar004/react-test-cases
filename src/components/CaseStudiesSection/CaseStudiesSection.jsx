@@ -47,7 +47,7 @@ export default function CaseStudiesSection() {
 
   return (
     <Section
-      data-testId="case-studies-section"
+      data-testid="case-studies-section"
       className=" flex-col items-start"
       style={{
         alignItems: "flex-start",

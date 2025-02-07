@@ -4,7 +4,7 @@ import React from "react";
 const Card = ({ image, title, description, buttonText, titleImg }) => {
   return (
     <div
-      data-testId="card-container"
+      data-testid="card-container"
       className="relative bg-cover bg-center rounded-lg shadow-lg overflow-hidden h-80 w-full"
       style={{ backgroundImage: `url(${image})` }}
     >
@@ -14,7 +14,7 @@ const Card = ({ image, title, description, buttonText, titleImg }) => {
           {titleImg && (
             <img
               src={titleImg}
-              data-testId="card-title-image"
+              data-testid="card-title-image"
               alt={title}
               className="h-auto w-2/5 max-w-[70%]"
             />
@@ -26,7 +26,7 @@ const Card = ({ image, title, description, buttonText, titleImg }) => {
 
         {buttonText && (
           <button
-            data-testId="text-button"
+            data-testid="text-button"
             className="bg-black uppercase text-white h-20 hover:scale-110 w-full  hover:text-xl font-semibold py-2 px-4  hover:bg-[#0d52ff] transition-all  "
           >
             {buttonText}

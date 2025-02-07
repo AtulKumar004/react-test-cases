@@ -31,10 +31,6 @@ const reviews = [
 ];
 
 export default function CustomerReviewsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const currentReview = reviews[currentIndex];
-
   return (
     <Section className="min-h-screen bg-gray-50 p-8 flex-col ">
       <h1 className="text-center text-3xl font-bold mb-4">Customer Reviews</h1>

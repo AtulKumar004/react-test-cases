@@ -51,4 +51,5 @@ describe("FeaturesSection Component", () => {
     const container = screen.queryByTestId("features-section");
     expect(container).not.toBeInTheDocument();
   });
+  
 });

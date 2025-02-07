@@ -1,0 +1,31 @@
+.prevBtn , .nextBtn{
+    padding: 0.5rem;
+    /* p-2 */
+    color: #4a5568;
+    /* text-gray-700 */
+    border: 1px solid #6b7280;
+    /* border border-gray-500 */
+    border-radius: 9999px;
+    /* rounded-full */
+    display: flex;
+    /* flex */
+    justify-content: center;
+    /* justify-center */
+    align-items: center;
+    /* items-center */
+    cursor: pointer;
+    /* cursor-pointer */
+    transition: all 0.3s ease;
+    /* Allows for smooth transitions */
+}
+
+.prevBtn:hover, .nextBtn:hover {
+    background: linear-gradient(to right, #4100a3, #0d52ff);
+    /* hover:bg-gradient-to-r */
+    /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); */
+    /* hover:shadow-lg */
+}
+
+.prevBtn:hover svg , .nextBtn:hover svg {
+    fill: white
+}

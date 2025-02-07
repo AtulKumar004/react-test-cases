@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BG1 from "../../assest/customerReviews/2Dsemiconductors-col.svg";
 import BG2 from "../../assest/customerReviews/Apex-1-col.svg";
 import BG3 from "../../assest/customerReviews/SG-USA-col.svg";
-import BG4 from "../../assest/customerReviews/download.png";
+import BG4 from "../../assest/customerReviews/Southern-col.svg";
 import CardSlider from "../cardSlider/CardSlider";
 import Section from "../styled/Main";
 
@@ -32,15 +32,25 @@ const reviews = [
 
 export default function CustomerReviewsSection() {
   return (
-    <Section className="min-h-screen bg-gray-50 p-8 flex-col ">
-      <h1 className="text-center text-3xl font-bold mb-4">Customer Reviews</h1>
-      <p className="text-center text-lg text-gray-600 mb-8">
-        B2B Ninja is the highest rated app on the BigCommerce App Store in the
-        B2B Category.
-      </p>
+    <Section className="min-h-screen bg-gray-50 p-8 flex-col justify-start  ">
+      <div className=" w-full">
+        <h2
+          className="w-full md:text-left text-center text-4xl font-bold mb-6"
+          // data-testid="features-section-title"
+        >
+          Customer Reviews
+        </h2>
+        <div
+          className="md:text-left  w-full text-center text-gray-600 mb-10 sm:max-w-md    "
+          // data-testid="features-section-description"
+        >
+          B2B Ninja is the highest rated app on the BigCommerce App Store in the
+          B2B Category.
+        </div>
 
-      {/* Show 2 cards at a time, for example */}
-      <CardSlider cards={reviews} cardsToShow={2} />
+        {/* Show 2 cards at a time, for example */}
+        <CardSlider cards={reviews} cardsToShow={2} />
+      </div>
     </Section>
   );
 }

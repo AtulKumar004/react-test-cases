@@ -1,12 +1,19 @@
 const { defineConfig } = require("cypress");
+const webpackPreprocessor = require("@cypress/webpack-preprocessor");
+const webpackOptions = require("./cypress/webpack.config.js");
 
 module.exports = defineConfig({
-  projectId: 'bw2gci',
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "webpack",
     },
-    viewportWidth: 1280,
-    viewportHeight: 720,
+    setupNodeEvents(on, config) {
+      const options = {
+        webpackOptions,
+      };
+      on("file:preprocessor", webpackPreprocessor(options));
+      return config;
+    },
   },
 });

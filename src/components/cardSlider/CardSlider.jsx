@@ -27,7 +27,7 @@ export default function CardSlider({ cards = [], cardsToShow = 2 }) {
   const totalSlides = maxIndex + 1;
 
   return (
-    <div className="w-full relative flex flex-col gap-4">
+    <div className="w-full relative flex flex-col gap-4"  data-testid="customer_review_section_slider_cont">
       {/* Cards Container */}
       <div className="flex w-full items-center justify-between space-x-4">
         {/* Left arrow button */}

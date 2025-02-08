@@ -9,6 +9,7 @@ import icon3 from "../assest/featuresIcon/B2B-ninja-Features-S3.png";
 import icon4 from "../assest/featuresIcon/B2B-ninja-Features-S4.png";
 import icon5 from "../assest/featuresIcon/B2B-ninja-Features-S5.png";
 import icon6 from "../assest/featuresIcon/B2B-ninja-Features-S6.png";
+import { reviews } from "../dist/data";
 const features = [
   {
     title: "Fully Integrated with BigCommerce",
@@ -56,7 +57,7 @@ export default function Home() {
       <CaseStudiesSection />
 
       <FeaturesSection features={features} />
-      <CustomerReviewsSection />
+      <CustomerReviewsSection  reviews = {reviews}/>
       {/* <CaseStudiesSection /> */}
       {/* Possibly more sections... */}
     </>

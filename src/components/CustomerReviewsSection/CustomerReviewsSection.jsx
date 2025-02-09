@@ -7,9 +7,10 @@ import {
 } from "../../dist/data";
 
 export default function CustomerReviewsSection({ reviews }) {
+
   return (
     <Section
-      className="min-h-screen bg-gray-50 p-8 flex-col justify-start  "
+      className="min-h-screen bg-gray-50 p-8 flex-col justify-start"
       data-testid="customer_review"
     >
       <div className=" w-full">

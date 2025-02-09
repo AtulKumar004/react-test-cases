@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ArrowIcon from "../../assest/arrow.svg";
 import "./style.css";
 
-export default function CardSlider({ cards = [], cardsToShow = 2 }) {
+export default function CardSlider({ cards = [], cardsToShow = 1 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsToShowState, setCardsToShowState] = useState(cardsToShow);
 
   // The maximum starting index we can have
-  const maxIndex = Math.max(cards.length - cardsToShow, 0);
+  const maxIndex = Math.max(cards.length - cardsToShowState, 0);
 
   // Move to the next "page" of cards
   const handleNext = () => {
@@ -25,11 +26,30 @@ export default function CardSlider({ cards = [], cardsToShow = 2 }) {
 
   // How many slides total? (for dot navigation)
   const totalSlides = maxIndex + 1;
+  // Handle the window resizing and adjust cardsToShowState
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        // Mobile screen size (adjust as needed)
+        setCardsToShowState(1); // Show 1 card on mobile
+      } else {
+        setCardsToShowState(cardsToShow); // Show the default number of cards
+      }
+    };
+
+    handleResize(); // Call it once to set the initial value
+    window.addEventListener("resize", handleResize); // Add event listener for window resize
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup on component unmount
+  }, [cardsToShow]);
 
   return (
-    <div className="w-full relative flex flex-col gap-4"  data-testid="customer_review_section_slider_cont">
+    <div
+      className="w-full relative flex flex-col gap-4"
+      data-testid="customer_review_section_slider_cont"
+    >
       {/* Cards Container */}
-      <div className="flex w-full items-center justify-between space-x-4">
+      <div className="flex w-full items-center justify-between ">
         {/* Left arrow button */}
         <button
           onClick={handlePrev}
@@ -58,43 +78,63 @@ export default function CardSlider({ cards = [], cardsToShow = 2 }) {
         </button>
 
         {/* Slider Wrapper (overflow hidden) */}
-        <div className="relative w-full overflow-hidden h-80">
+        <div
+          className="relative w-full overflow-hidden h-auto md:h-80"
+          style={{ overflow: "hidden" }}
+        >
           {/* Slider Track (translates left/right) */}
           <div
-            className="flex transition-transform duration-500 ease-in-out h-full w-full gap-4"
+            className="flex flex-shrink-0 transition-transform duration-500 ease-in-out h-full w-full "
             style={{
-              transform: `translateX(-${(currentIndex * 100) / cardsToShow}%)`,
+              transform: `translateX(-${
+                (currentIndex * 100) / cardsToShowState
+              }%)`,
             }}
+            data-testid="cards-component"
           >
             {cards.map((item, index) => (
               <div
                 key={index}
-                // Each card takes up (100 / cardsToShow)%
-                className="flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-md shadow-md  py-4 px-16"
-                style={{ width: `${100 / cardsToShow}%` }}
+                // Each card takes up (100 / cardsToShowState)%
+                className="  flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-md  px-4    "
+                // style={{
+                //   width: `${100 / cardsToShowState}%`,
+                // }}
+                style={{
+                  flex: "0 0 auto", // Prevent shrinking/growing
+                  width: `${100 / cardsToShowState}%`, // Ensure precise card width
+                }}
               >
-                {/* Logo */}
-                {item.logo && (
-                  <img
-                    src={item.logo}
-                    alt="Logo"
-                    className="h-12 object-contain mb-3"
-                    style={{ flex: "1 0 0 " }}
-                  />
-                )}
-
-                {/* Main Text */}
-                <p
-                  className="text-base text-gray-600 text-left mb-3"
-                  style={{ flex: "1 0 0 " }}
+                <div
+                  className="   h-full  flex-shrink-0 flex flex-col items-center shadow-xl justify-center px-4  py-2 md:py-4"
+                  // style={{
+                  //   boxShadow:
+                  //     "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;",
+                  // }}
                 >
-                  {item.text}
-                </p>
+                  {/* Logo */}
+                  {item.logo && (
+                    <img
+                      src={item.logo}
+                      alt="Logo"
+                      className="h-12 object-contain mb-3"
+                      style={{ flex: "1 0 0" }}
+                    />
+                  )}
 
-                {/* Website (centered at bottom) */}
-                <p className="text-base font-semibold text-gray-800 text-right w-full mt-auto">
-                  {item.website}
-                </p>
+                  {/* Main Text */}
+                  <p
+                    className="text-base text-gray-600 text-center md:text-left mb-3"
+                    style={{ flex: "1 0 0" }}
+                  >
+                    {item.text}
+                  </p>
+
+                  {/* Website (centered at bottom) */}
+                  <p className="text-base font-semibold text-gray-800 text-center md:text-right w-full mt-auto">
+                    {item.website}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -129,7 +169,10 @@ export default function CardSlider({ cards = [], cardsToShow = 2 }) {
       </div>
 
       {/* Dots Pagination (aligned to the right) */}
-      <div className="flex items-center mt-4 space-x-2 justify-center">
+      <div
+        className="flex items-center mt-4 space-x-2 justify-center"
+        data-testid="pagination-dot"
+      >
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}

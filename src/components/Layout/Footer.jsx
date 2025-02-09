@@ -10,22 +10,65 @@ import chatIcon from "../../assest/chatIcon.svg";
 const Footer = () => {
   return (
     <div
-      className="w-full mx-auto  flex flex-col items-center footer-container "
+      className="w-full mx-auto  flex flex-col items-center footer-container relative"
+      data-testid="footer-container"
     >
+      <div className=" w-full  md:absolute z-40  md:top-[-5rem] ">
+        {/* <div
+          className="w-full  m-auto py-8"
+          style={{
+            backgroundImage: "linear-gradient(270deg, #0d52ff 0, #4a04a3)",
+          }}
+        >
+          <div>
+            <h3 className="text-center text-white md:text-left text-4xl">
+              B2B Ninja is Here to Revolutionize Your Quoting Process
+            </h3>
+          </div>
+          <button>View Demo</button>
+        </div> */}
+
+        <div
+          className="w-full md:w-[65%] flex flex-col items-center  px-4 m-auto md:px-12 md:flex-row py-8 "
+          style={{
+            backgroundImage: "linear-gradient(270deg, #0d52ff 0, #4a04a3)",
+          }}
+        >
+          <div className="flex-1 ">
+            <h3 className="text-center   text-2xl md:text-3xl xl:text-4xl text-white md:text-left">
+              B2B Ninja is Here to Revolutionize Your Quoting Process
+            </h3>
+          </div>
+          <div className="mt-8 md:mt-0">
+            <button
+//               className=" uppercase text-white px-8 py-2 rounded border-2 border-white bg-black 
+// hover:bg-[linear-gradient(270deg,#4a04a3_0%,#1af2cd)]"
+className="uppercase text-white px-8 py-2 rounded border-2 border-white bg-black 
+
+    transition-all duration-500 ease-in-out 
+    hover:bg-[linear-gradient(270deg,#4a04a3_0%,#1af2cd)] "
+
+            >
+              <div className="">View Demo</div>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <Container
         className="
         bg-no-repeat bg-cover bg-center
         w-full
-        // pt-10
 
      
       "
+        paddingTop="5rem"
         style={{
           backgroundImage: `url(${footerBG})`,
           backgroundColor: "#121117",
         }}
       >
-        <div className="w-full mx-auto  flex flex-col items-center ">
+        <div className="w-full mx-auto   flex flex-col items-center ">
           <div className="w-full py-8 flex flex-col md:flex-row   max-w-[80rem]   gap-0 md:gap-16">
             {/* Top Row: "Questions or Need Help?" + Buttons */}
             <div className="flex   flex-col items-start md:items-center mt-8    gap-8   ">

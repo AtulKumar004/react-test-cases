@@ -29,7 +29,7 @@ export const NavItems = styled(Link)`
   font-size: 1.2rem;
   font-weight: ${(props) => props?.fontWeight || "bold"};
   color: ${(props) => props.color || "black"};
-    transition: background 0.3s ease; /
+    // transition: background 0.3s ease; /
 
   /* If disableUnderline is NOT true, apply the underline styles */
   ${({ disableUnderline }) =>

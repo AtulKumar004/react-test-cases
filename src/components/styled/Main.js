@@ -8,6 +8,7 @@ const Section = styled.div`
   
   
   background-color: #f8f9fa;
+
   
   background: ${(props) => props.background || 'white'};
   color: ${(props) => props.color || 'black'};
@@ -41,6 +42,7 @@ const Container = styled.div`
   justify-content: center;
   margin: 0 5%;
   padding: 0 5%;
+ 
 
   
   
@@ -51,6 +53,7 @@ const Container = styled.div`
 
   @media (min-width: 768px) {
     margin: 0 7%;
+     padding-top: ${(props) => props?.paddingTop || 0};
   }
      @media (max-width: 768px) {
    background-image: none !important ;

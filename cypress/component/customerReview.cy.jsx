@@ -3,6 +3,9 @@ import CustomerReviewsSection from "../../src/components/CustomerReviewsSection/
 import { mount } from "cypress/react";
 import { reviews } from "../../src/dist/data";
 
+
+
+
 describe("customerReview.cy.jsx", () => {
   it("does not render when the reviews array is empty", () => {
     // see: https://on.cypress.io/mounting-react

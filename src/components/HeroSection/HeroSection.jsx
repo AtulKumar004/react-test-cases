@@ -19,6 +19,7 @@ export default function HeroSection() {
     <div className="w-full ">
       {/* Main Hero Banner */}
       <Section
+      data-testid= "hero-section-container"
         className="relative bg-gradient-to-r from-purple-800 to-purple-600 text-white overflow-hidden pb-10"
         style={{
           backgroundImage: `url(${HeroBG})`,

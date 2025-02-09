@@ -21,7 +21,22 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack']
-      }
+      },
+       // Process image files
+       {
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
+        type: 'asset/resource',
+        // Alternatively, you can use file-loader if preferred:
+        // use: [
+        //   {
+        //     loader: 'file-loader',
+        //     options: {
+        //       name: '[name].[hash].[ext]',
+        //       outputPath: 'images',
+        //     },
+        //   },
+        // ],
+      },
       // other rules like for SVGs, etc.
     ]
   },

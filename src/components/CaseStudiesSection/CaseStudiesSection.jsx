@@ -55,7 +55,7 @@ export default function CaseStudiesSection() {
         paddingBottom: "1.5rem",
       }}
     >
-      <h1 className="w-full md:text-left text-center text-4xl font-bold mb-6">
+      <h1 data-testid= "case_study_title" className="w-full md:text-left text-center text-4xl font-bold mb-6">
         Real Case Studies
       </h1>
       <p data-testid= "case_study_section_description" className="md:text-left  w-full text-center text-gray-600 mb-10 sm:max-w-md  max-w-full ">

@@ -7,6 +7,7 @@ import {
 } from "../../dist/data";
 
 export default function CustomerReviewsSection({ reviews }) {
+  if(!reviews || !reviews.length) return ;
 
   return (
     <Section

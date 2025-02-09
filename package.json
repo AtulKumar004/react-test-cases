@@ -16,7 +16,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+   "test:e2e": "cypress run --e2e",
+    "test:component": "cypress run --component",
+    "test": "npm run test:e2e && npm run test:component",
     "eject": "react-scripts eject",
     "cypress": "cypress open"
   },
@@ -51,6 +53,7 @@
     "@testing-library/react": "^16.2.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.2.1",
+    "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
     "cypress": "^14.0.2",
     "cypress-real-events": "^1.14.0",

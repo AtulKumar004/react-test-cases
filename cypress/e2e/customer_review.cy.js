@@ -67,13 +67,18 @@ describe("Customer Review Tests", () => {
   });
 
   it('navigates to a specific slide when a pagination dot is clicked', () => {
-    // For example, click on the dot for slide 2 (aria-label="Go to slide 2").
-    cy.get('button[aria-label="Go to slide 2"]').click();
+    // Scroll into view and force the click if necessary.
+    cy.get('button[aria-label="Go to slide 2"]')
+      .scrollIntoView()
+      .should('be.visible')
+      .click({ force: true });
+    
     // Verify that the slider track's transform property has updated.
     cy.get('[data-testid="cards-component"]')
       .should('have.css', 'transform')
       .and('match', /matrix\(.*\)/);
   });
+  
   it('disables the Next button on the last slide', () => {
     // Recursively click the Next button until it becomes disabled.
     function clickNextUntilDisabled() {

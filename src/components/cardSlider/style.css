@@ -29,3 +29,10 @@
 .prevBtn:hover svg , .nextBtn:hover svg {
     fill: white
 }
+@media (max-width: 768px){
+    
+    .footer-container li a , .copy-rigth p,  .copy-rigth a {
+        font-size:  1rem !important;
+    
+    }
+}

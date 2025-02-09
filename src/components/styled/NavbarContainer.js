@@ -20,39 +20,40 @@ const NavbarContainer = styled.div`
   }
 `;
 
-export const NavItems = styled(Link)`
-  /* Make the parent a positioning container */
-  position: relative;
-  display: inline-block;
 
+
+export const NavItems = styled(Link)`
+  position: relative;
+  display: ${(props) => props?.display || "inline-block"};
   text-decoration: none;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: ${(props) => props?.fontWeight || "bold"};
+  color: ${(props) => props.color || "black"};
+    transition: background 0.3s ease; /
 
-  /* Pseudo-element for the animated underline */
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px; /* Thickness of the underline */
-    // border-radius: 2rem;        /* Rounded corners
-    background-color: blue; /* Color of the underline */
+  /* If disableUnderline is NOT true, apply the underline styles */
+  ${({ disableUnderline }) =>
+    !disableUnderline &&
+    `
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: blue;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.3s ease-out;
+    }
 
-    /* Start with the underline “invisible” (scaleX(0)) */
-    transform: scaleX(0);
-    transform-origin: left center;
-
-    /* Smooth transition when scaling from 0 to 1 */
-    transition: transform 0.3s ease-out;
-  }
-
-  /* When hovering, scale the underline to 100% width */
-  &:hover::after,
-  &:focus::after {
-    transform: scaleX(1);
-  }
+    &:hover::after,
+    &:focus::after {
+      transform: scaleX(1);
+    }
+  `}
 `;
+
 
 export default NavbarContainer;

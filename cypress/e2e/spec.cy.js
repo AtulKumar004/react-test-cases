@@ -2,7 +2,7 @@
 import "cypress-real-events";
 describe('Announcement Bar Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit(Cypress.env("REACT_BASEURL"));
   });
 
   it('should exist on page load', () => {
@@ -104,7 +104,7 @@ describe('Announcement Bar Tests', () => {
 
 describe('Navbar Functionality Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit(Cypress.env("REACT_BASEURL"));
   });
 
   // Test 1: Sticky navbar on scroll

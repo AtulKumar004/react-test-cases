@@ -4,7 +4,7 @@ describe("Features Page E2E Tests", () => {
     // Visit the features page before each test
     beforeEach(() => {
       // Adjust the URL if your features page is located elsewhere
-      cy.visit("http://localhost:3000/");
+      cy.visit(Cypress.env("REACT_BASEURL"));
     });
   
     it("Should render feature cards with title, description, and icon", () => {

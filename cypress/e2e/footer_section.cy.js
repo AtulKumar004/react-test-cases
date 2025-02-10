@@ -2,7 +2,7 @@
 
 describe('Footer Component Tests', () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/");
+        cy.visit(Cypress.env("REACT_BASEURL"));
     });
   
     it('should display the footer component', () => {

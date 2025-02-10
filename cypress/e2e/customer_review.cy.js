@@ -12,7 +12,7 @@ import {
 
 describe("Customer Review Tests", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit(Cypress.env("REACT_BASEURL"));
   });
 
   it("should exist on page load", () => {

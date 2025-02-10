@@ -4,7 +4,7 @@ describe("HeroSection E2E Tests", () => {
     // Visit the page that renders the HeroSection component.
     // Adjust the URL if your HeroSection is on a different route.
     beforeEach(() => {
-        cy.visit("http://localhost:3000/");
+        cy.visit(Cypress.env("REACT_BASEURL"));
 
     });
 
